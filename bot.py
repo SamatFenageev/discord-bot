@@ -65,7 +65,7 @@ async def hello(ctx):
 #clear command
 @client.command(pass_context = True)
 
-async def clear(ctx, amount = 100):
+async def clear(ctx, amount = 10000):
 	await ctx.channel.purge(limit = amount)
 
 @client.command(pass_context = True)
@@ -150,16 +150,14 @@ async def rat(ctx):
 
 			file = open('ratDate.txt', 'w')
 			file.write(datetime.datetime.strftime(datetime.datetime.now(),"%d/%m/%y %H:%M"))
-			file.close()
-
-		with codecs.open('rat.txt', "w",encoding='utf-16', errors='ignore') as file:
-			file.write(tot_samiy)
-			
-
+			file.close()	
+			with codecs.open('rat.txt', "w",encoding='utf-16', errors='ignore') as file:
+						file.write(tot_samiy)
 		else:
 
 			await ctx.send(f'😔Я уже поймал одну крысу сегодня\n Вот она 👉 🐀 {tot_samiy} 🐀\n Mеня от этих натуралов уже тошнит🤢\n Можно я отдохну от них, Сэмпай...🥺')
 
+		
 @client.command( pass_context = True)
 @commands.has_permissions(administrator = True)
 
